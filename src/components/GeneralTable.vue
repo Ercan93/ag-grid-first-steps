@@ -5,7 +5,7 @@
     :columnDefs="columnDefs"
     :rowData="rowData"
     :defaultColDef="defaultColDef"
-    rowSelection="multiple"
+    :rowSelection="rowSelection"
     @grid-ready="onGridReady"
   ></ag-grid-vue>
 </template>
@@ -20,9 +20,12 @@ export default {
     return {
       columnDefs: null,
       rowData: null,
+      rowSelection: null,
       defaultColDef: {
         width: 170,
         resizable: true,
+        sortable: true,
+        filter: true,
       },
     };
   },
@@ -44,30 +47,29 @@ export default {
         headerName: "Index",
         field: "index",
         checkboxSelection: true,
-        sortable: true,
       },
-      { headerName: "Name", field: "name", sortable: true },
-      { headerName: "Platform", field: "platform", sortable: true },
+      { headerName: "Name", field: "name" },
+      { headerName: "Platform", field: "platform" },
       {
         headerName: "Year of Release",
         field: "year_of_release",
-        sortable: true,
       },
-      { headerName: "Genre", field: "genre", sortable: true },
-      { headerName: "Publisher", field: "publisher", sortable: true },
-      { headerName: "NA Players", field: "na_players", sortable: true },
-      { headerName: "EU Players", field: "eu_players", sortable: true },
-      { headerName: "JP Players", field: "jp_players", sortable: true },
-      { headerName: "Other Players", field: "other_players", sortable: true },
-      { headerName: "Global Players", field: "global_players", sortable: true },
-      { headerName: "Critic Score", field: "critic_score", sortable: true },
-      { headerName: "Critic Count", field: "critic_count", sortable: true },
-      { headerName: "User Score", field: "user_score", sortable: true },
-      { headerName: "User Count", field: "user_count", sortable: true },
-      { headerName: "Developer", field: "developer", sortable: true },
-      { headerName: "Rating", field: "rating", sortable: true },
+      { headerName: "Genre", field: "genre" },
+      { headerName: "Publisher", field: "publisher" },
+      { headerName: "NA Players", field: "na_players" },
+      { headerName: "EU Players", field: "eu_players" },
+      { headerName: "JP Players", field: "jp_players" },
+      { headerName: "Other Players", field: "other_players" },
+      { headerName: "Global Players", field: "global_players" },
+      { headerName: "Critic Score", field: "critic_score" },
+      { headerName: "Critic Count", field: "critic_count" },
+      { headerName: "User Score", field: "user_score" },
+      { headerName: "User Count", field: "user_count" },
+      { headerName: "Developer", field: "developer" },
+      { headerName: "Rating", field: "rating" },
     ];
 
+    this.rowSelection = "multiple";
     this.rowData = this.gameDataGetters;
   },
 };
