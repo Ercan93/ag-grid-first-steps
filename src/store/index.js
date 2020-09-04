@@ -14,6 +14,12 @@ export default new Vuex.Store({
     gameDataGetters(state) {
       return state.gameData;
     },
+    publisherGamesCountGetters(state) {
+      return state.publisherGameCount;
+    },
+    yearGamesCountGetters(state) {
+      return state.yearGamesCount;
+    },
   },
   mutations: {
     SET_PUBLISHER_GAMES_COUNT(state, payload) {
