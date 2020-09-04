@@ -15,7 +15,15 @@ export default new Vuex.Store({
       return state.gameData;
     },
   },
-  mutations: {},
+  mutations: {
+    SET_PUBLISHER_GAMES_COUNT(state, payload) {
+      state.publisherGameCount = payload;
+      console.log(state.publisherGameCount);
+    },
+    SET_YEAR_GAMES_COUNT(state, payload) {
+      state.yearGamesCount = payload;
+    },
+  },
   actions: {
     setDataCount(context, title) {
       let gameData = context.state.gameData;
@@ -32,6 +40,12 @@ export default new Vuex.Store({
       });
       title = title.toUpperCase();
       context.commit(`SET_${title}_GAMES_COUNT`, dataCountList);
+    },
+    setPublisherGamesCount({ dispatch }) {
+      dispatch("setDataCount", "publisher");
+    },
+    setYearGamesCount({ dispatch }) {
+      dispatch("setDataCount", "year");
     },
   },
   modules: {},
